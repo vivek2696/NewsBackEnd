@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 
 const db = mongoose.connect(
+
     "mongodb://127.0.0.1:27017/news",
     {
         useNewUrlParser: true,
@@ -28,9 +29,9 @@ app.use("/api", newsRoutes);
 app.use("/api", queryRoutes);
 
 app.get("/", (req, res) => {
-    res.send("App is running!!");
+  res.send("App is running!!");
 });
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
