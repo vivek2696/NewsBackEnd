@@ -7,13 +7,16 @@ const app = express();
 app.use(express.json());
 
 const db = mongoose.connect(
-  "mongodb://127.0.0.1:27017/news",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) =>
-    err ? console.log("Something got wrong", err) : console.log("DB Connected")
+
+    "mongodb://127.0.0.1:27017/news",
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    },
+    (err) =>
+        err
+            ? console.log("Something got wrong", err)
+            : console.log("DB Connected")
 );
 
 //Routes
