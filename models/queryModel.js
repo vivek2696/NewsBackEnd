@@ -11,5 +11,5 @@ var queryModel = new Schema(
     }
 );
 
-module.exports = mongoose.model("query", queryModel, "querylist");
+module.exports = mongoose.model("query", queryModel, "QueryList");
 //the third argument is the collection name
