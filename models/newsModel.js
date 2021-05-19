@@ -13,4 +13,4 @@ var newsModel = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("news", newsModel, "newslist");
+module.exports = mongoose.model("news", newsModel, "NewsList");

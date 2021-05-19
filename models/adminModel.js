@@ -12,5 +12,5 @@ var adminModel = new Schema(
     }
 );
 
-module.exports = mongoose.model("admin", adminModel, "adminlist");
+module.exports = mongoose.model("admin", adminModel, "AdminList");
 //the third argument is the collection name
