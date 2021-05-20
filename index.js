@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-const db = mongoose.connect("mongodb://127.0.0.1:27017/news");
+const db = mongoose.connect("mongodb://127.0.0.1:27017/News");
 
 //Routes
 const adminRoutes = require("./routes/adminRoutes");

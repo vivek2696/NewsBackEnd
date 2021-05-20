@@ -13,6 +13,7 @@ router.get('/regular-news',(req, res) => {
             throw err;
         }
         else{
+            console.log(data);
             res.json(data);
         }
     })
@@ -31,13 +32,13 @@ router.get('/sports-news', (req, res) => {
 })
 
 router.get('/admin/news', (req, res) => {
-    var headerInfo = req.headers.authorization;
+    var headerInfo = req.cookies.token;
 
     if(headerInfo != null){
         var token = headerInfo.replace('Bearer ', '');
 
         try{
-            var result = jwt.verify(token, 'Secrete Key');
+            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
 
             NewsModel.find((err, data) => {
                 if(err){
@@ -59,7 +60,7 @@ router.get('/admin/news', (req, res) => {
 })
 
 router.post('/admin/news', (req, res) => {
-    var headerInfo = req.headers.authorization;
+    var headerInfo = req.cookies.token;
     var newNews = new NewsModel();
 
     newNews.title = req.body.title; 
@@ -72,7 +73,7 @@ router.post('/admin/news', (req, res) => {
         var token = headerInfo.replace('Bearer ', '');
 
         try{
-            var result = jwt.verify(token, 'Secrete Key');
+            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
 
             newNews.save((err, data) => {
                 if(err){
@@ -95,14 +96,14 @@ router.post('/admin/news', (req, res) => {
 
 
 router.put('/admin/news/:id', (req, res) => {
-    var headerInfo = req.headers.authorization;
+    var headerInfo = req.cookies.token;
     var newsId = req.params.id;
 
     if(headerInfo != null && !newsId){
         var token = headerInfo.replace('Bearer ', '');
 
         try{
-            var result = jwt.verify(token, 'Secrete Key');
+            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
 
             NewsModel.findByIdAndUpdate(newsId, req.body, (err, data) => {
                 if(err){
@@ -130,16 +131,16 @@ router.put('/admin/news/:id', (req, res) => {
 })
 
 router.delete('/admin/news/:id', (req, res) => {
-    var headerInfo = req.headers.authorization;
+    var headerInfo = req.cookies.token;
     var newsId = req.params.id;
 
     if(headerInfo != null && !newsId){
         var token = headerInfo.replace('Bearer ', '');
 
         try{
-            var result = jwt.verify(token, 'Secrete Key');
+            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
 
-            NewsModel.delete(newsId, (err, data) => {
+            NewsModel.findByIdAndDelete(newsId, (err, data) => {
                 if(err){
                     console.log(err);
                     throw err;
