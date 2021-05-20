@@ -3,42 +3,16 @@ const newsModel = require("../models/newsModel");
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 
- 
 const NewsModel = require('../models/newsModel');
-
-router.get('/regular-news',(req, res) => {
-    NewsModel.find({ isSports : false }, (err, data)=> {
-        if(err){
-            console.log(err);
-            throw err;
-        }
-        else{
-            console.log(data);
-            res.json(data);
-        }
-    })
-})
-
-router.get('/sports-news', (req, res) => {
-    NewsModel.find({ isSports : true }, (err, data) => {
-        if(err){
-            console.log(err);
-            throw err;
-        }
-        else{
-            res.json(data);
-        }
-    })
-})
+const SECRET_KEY = 'NodeFinalProject@Team5SecreteKey';
 
 router.get('/admin/news', (req, res) => {
-    var headerInfo = req.cookies.token;
-    console.log(headerInfo);
-    if(headerInfo != null){
-        var token = headerInfo.replace('Bearer ', '');
-        console.log(token);
+    var token = req.cookies.token;
+    console.log(token);
+
+    if(token != null){
         try{
-            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
+            var result = jwt.verify(token, SECRET_KEY);
             console.log('Fetching data!')
             NewsModel.find((err, data) => {
                 if(err){
@@ -61,7 +35,7 @@ router.get('/admin/news', (req, res) => {
 })
 
 router.post('/admin/news', (req, res) => {
-    var headerInfo = req.cookies.token;
+    var token = req.cookies.token;
     var newNews = new NewsModel();
 
     newNews.title = req.body.title; 
@@ -70,11 +44,9 @@ router.post('/admin/news', (req, res) => {
     newNews.image_url = req.body.image_url;
     newNews.isSports = req.body.isSports;
 
-    if(headerInfo != null){
-        var token = headerInfo.replace('Bearer ', '');
-
+    if(token != null){
         try{
-            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
+            var result = jwt.verify(token, SECRET_KEY);
 
             newNews.save((err, data) => {
                 if(err){
@@ -97,14 +69,14 @@ router.post('/admin/news', (req, res) => {
 
 
 router.put('/admin/news/:id', (req, res) => {
-    var headerInfo = req.cookies.token;
+
+    var token = req.cookies.token;
     var newsId = req.params.id;
     console.log('NewsId: ', newsId);
-    if(headerInfo != null && (newsId != "" || newsId != undefined)){
-        var token = headerInfo.replace('Bearer ', '');
 
+    if(token != null && (newsId != "" || newsId != undefined)){
         try{
-            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
+            var result = jwt.verify(token, SECRET_KEY);
 
             NewsModel.findByIdAndUpdate(newsId, req.body, (err, data) => {
                 if(err){
@@ -120,7 +92,7 @@ router.put('/admin/news/:id', (req, res) => {
         }
     }
     else{
-        if(headerInfo == null){
+        if(token == null){
             console.log('No JWT');
             res.status(500).json({err: 'Not Authorized!!'});
         }
@@ -132,14 +104,13 @@ router.put('/admin/news/:id', (req, res) => {
 })
 
 router.delete('/admin/news/:id', (req, res) => {
-    var headerInfo = req.cookies.token;
+
+    var token = req.cookies.token;
     var newsId = req.params.id;
 
-    if(headerInfo != null && (newsId != "" || newsId != undefined)){
-        var token = headerInfo.replace('Bearer ', '');
-
+    if(token != null && (newsId != "" || newsId != undefined)){
         try{
-            var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
+            var result = jwt.verify(token, SECRET_KEY);
 
             NewsModel.findByIdAndDelete(newsId, (err, data) => {
                 if(err){
@@ -155,7 +126,7 @@ router.delete('/admin/news/:id', (req, res) => {
         }
     }
     else{
-        if(headerInfo == null){
+        if(token == null){
             console.log('No JWT');
             res.status(500).json({err: 'Not Authorized!!'});
         }
@@ -165,8 +136,6 @@ router.delete('/admin/news/:id', (req, res) => {
         } 
     }
 })
-
-
 
 
 module.exports = router;

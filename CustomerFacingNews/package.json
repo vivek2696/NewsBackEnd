@@ -1,0 +1,21 @@
+{
+  "name": "customerfacingnews",
+  "version": "1.0.0",
+  "description": "Customer Facing News Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team 4",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.7",
+    "mongoose": "^5.12.10",
+    "nodemon": "^2.0.7",
+    "redis": "^3.1.2",
+    "socket.io": "^4.1.2"
+  }
+}
