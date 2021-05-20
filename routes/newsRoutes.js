@@ -1,8 +1,8 @@
 const express = require("express");
 const newsModel = require("../models/newsModel");
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 
-//************* */ NEEDS SECRET KEY
  
 const NewsModel = require('../models/newsModel');
 
@@ -33,19 +33,20 @@ router.get('/sports-news', (req, res) => {
 
 router.get('/admin/news', (req, res) => {
     var headerInfo = req.cookies.token;
-
+    console.log(headerInfo);
     if(headerInfo != null){
         var token = headerInfo.replace('Bearer ', '');
-
+        console.log(token);
         try{
             var result = jwt.verify(token, 'NodeFinalProject@Team5SecreteKey');
-
+            console.log('Fetching data!')
             NewsModel.find((err, data) => {
                 if(err){
                     console.log(err);
                     throw err;
                 }
                 else{ 
+                    console.log(data);
                     res.json(data);
                 }
             });    
@@ -98,8 +99,8 @@ router.post('/admin/news', (req, res) => {
 router.put('/admin/news/:id', (req, res) => {
     var headerInfo = req.cookies.token;
     var newsId = req.params.id;
-
-    if(headerInfo != null && !newsId){
+    console.log('NewsId: ', newsId);
+    if(headerInfo != null && (newsId != "" || newsId != undefined)){
         var token = headerInfo.replace('Bearer ', '');
 
         try{
@@ -134,7 +135,7 @@ router.delete('/admin/news/:id', (req, res) => {
     var headerInfo = req.cookies.token;
     var newsId = req.params.id;
 
-    if(headerInfo != null && !newsId){
+    if(headerInfo != null && (newsId != "" || newsId != undefined)){
         var token = headerInfo.replace('Bearer ', '');
 
         try{

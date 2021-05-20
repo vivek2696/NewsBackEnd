@@ -1,14 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser = require('cookie-parser')
 
 const port = 3300;
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
 const db = mongoose.connect(
 
-    "mongodb://127.0.0.1:27017/news",
+    "mongodb://127.0.0.1:27017/News",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
