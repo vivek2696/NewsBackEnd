@@ -26,12 +26,4 @@ router.route("/query/:id").delete((req, res) => {
   });
 });
 
-// router.get("/api/query", (req, res) => {
-//   //db.collection(collectionName).find().toArray((err, result) => {
-//   query.find((err, result) => {
-//     if (err) throw err;
-//     else res.send(result);
-//   });
-// });
-
 module.exports = router;

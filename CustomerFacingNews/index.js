@@ -1,12 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cookieParser = require('cookie-parser')
 
-const port = 3300;
+const port = 3400;
 const app = express();
 
 app.use(express.json());
-app.use(cookieParser());
 
 const db = mongoose.connect(
 
@@ -22,11 +20,9 @@ const db = mongoose.connect(
 );
 
 //Routes
-const adminRoutes = require("./routes/adminRoutes");
 const newsRoutes = require("./routes/newsRoutes");
 const queryRoutes = require("./routes/queryRoutes");
 
-app.use("/api/admin", adminRoutes);
 app.use("/api", newsRoutes);
 app.use("/api", queryRoutes);
 
