@@ -23,6 +23,7 @@ router.route("/query/:id").delete((req, res) => {
   query.findByIdAndDelete(qid, (err, result) => {
     if (err) res.send("Error deleting query!!");
     else res.send({ message: "Query deleted successfully!!" });
+    console.log(req.params);
   });
 });
 
