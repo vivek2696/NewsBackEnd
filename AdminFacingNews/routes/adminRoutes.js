@@ -25,7 +25,12 @@ router.post("/login", (req, res) => {
                     maxAge: 900000,
                     httpOnly: true,
                 });
-                var response = { ...account, token };
+                const adminObj = {
+                    name: account._doc.name,
+                    email: account._doc.email,
+                    token,
+                };
+                var response = adminObj;
                 console.log("Response: " + response);
                 res.send(response);
             } else {
