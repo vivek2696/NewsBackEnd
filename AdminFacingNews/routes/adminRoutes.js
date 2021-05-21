@@ -17,7 +17,7 @@ router.post("/login", (req, res) => {
         }
         // Else compare password hash and set cookie with token
         else {
-            console.log(account);
+            //console.log(account);
 
             if (account.comparePasswordHash(password)) {
                 const token = account.genUserObj().token;
@@ -25,8 +25,9 @@ router.post("/login", (req, res) => {
                     maxAge: 900000,
                     httpOnly: true,
                 });
-                console.log("Token:" + token);
-                res.send(token);
+                var response = {...account, token};
+                console.log("Response: " + response);
+                res.send(response);
             } else {
                 res.status(401).json({ msg: "Invalid Credentials." });
             }
