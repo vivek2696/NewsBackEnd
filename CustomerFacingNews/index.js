@@ -23,6 +23,8 @@ const io = require("socket.io")(httpServer, {
         methods: ["GET", "POST"],
     },
 });
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
 app.use(cors());
 app.use(express.json());
@@ -46,9 +48,11 @@ const db = mongoose.connect(
 //Routes
 const newsRoutes = require("./routes/newsRoutes");
 const queryRoutes = require("./routes/queryRoutes");
+const weatherRoutes = require("./routes/weatherRoutes");
 
 app.use("/api", newsRoutes);
 app.use("/api", queryRoutes);
+app.use("/api", weatherRoutes);
 
 app.get("/", (req, res) => {
     res.send("App is running!!");
