@@ -1,25 +1,26 @@
 {
-  "name": "customerfacingnews",
-  "version": "1.0.0",
-  "description": "Customer Facing News Backend",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "chat": "nodemon chat.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Team 4",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongodb": "^3.6.7",
-    "mongoose": "^5.12.10",
-    "nodemon": "^2.0.7",
-    "redis": "^3.1.2",
-    "socket.io": "^0.9.14",
-    "node-localstorage": "^1.3.1",
-    "public-ip": "^3.1.0",
-    "node-iplocate": "^1.0.1"
-  }
+    "name": "customerfacingnews",
+    "version": "1.0.0",
+    "description": "Customer Facing News Backend",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "chat": "nodemon chat.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Team 4",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "mongodb": "^3.6.7",
+        "mongoose": "^5.12.10",
+        "node-iplocate": "^1.0.1",
+        "node-localstorage": "^1.3.1",
+        "nodemon": "^2.0.7",
+        "public-ip": "^3.1.0",
+        "redis": "^3.1.2",
+        "socket.io": "^4.1.2"
+    }
 }
