@@ -1,10 +1,81 @@
 [{
   "_id": {
-    "$oid": "60a531b1944420ebba09f7b9"
+    "$oid": "60a95912fb55544faced3329"
   },
-  "title": "US Bans Huawei",
-  "description": "US bans Huawei",
-  "url": "",
-  "image_url": "",
-  "isSports": false
+  "title": "The Growing Power Of The AAPI Vote, By The Numbers",
+  "description": "Data from the firm TargetSmart found that almost half of all Asian Americans and Pacific Islanders who cast a ballot in 2020 did not vote in 2016, and a quarter had never voted before.",
+  "url": "https://www.npr.org/2021/05/22/999345393/the-growing-power-of-the-aapi-vote-by-the-numbers",
+  "image_url": "https://media.npr.org/assets/img/2021/05/21/gettyimages-1229435941_wide-88fdc231e7b329733593111876860d491b026e70-s800-c85.webp",
+  "isSports": false,
+  "createdAt": {
+    "$date": "2021-05-22T19:18:42.458Z"
+  },
+  "updatedAt": {
+    "$date": "2021-05-22T19:18:42.458Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a95955fb55544faced332a"
+  },
+  "title": "How The Biden White House Learned To Drop The Masks And Stop Worrying",
+  "description": "New guidance that fully vaccinated people don't have to wear masks made a visible change at the White House this week.",
+  "url": "https://www.npr.org/2021/05/22/999317267/how-the-biden-white-house-learned-to-drop-the-masks-and-stop-worrying",
+  "image_url": "https://media.npr.org/assets/img/2021/05/21/gettyimages-1319108907_wide-54275eda0aa876dceb8a0ffd5e739aa860c28e10-s800-c85.webp",
+  "isSports": false,
+  "createdAt": {
+    "$date": "2021-05-22T19:19:49.868Z"
+  },
+  "updatedAt": {
+    "$date": "2021-05-22T19:19:49.868Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a9598dfb55544faced332b"
+  },
+  "title": "Internet Explorer, The Love-To-Hate-It Web Browser, Will Die Next Year",
+  "description": "Microsoft is officially pulling the plug on Internet Explorer in June 2022.",
+  "url": "https://www.npr.org/2021/05/22/999343673/internet-explorer-the-love-to-hate-it-web-browser-will-die-next-year",
+  "image_url": "https://media.npr.org/assets/img/2021/05/21/gettyimages-82687981_custom-31e23874e57d78fe1fb791f6f13caded0509de56-s800-c85.webp",
+  "isSports": false,
+  "createdAt": {
+    "$date": "2021-05-22T19:20:45.676Z"
+  },
+  "updatedAt": {
+    "$date": "2021-05-22T19:20:45.676Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a959dbfb55544faced332c"
+  },
+  "title": "Subtropical Storm Ana Is First Named Storm Of Atlantic Hurricane Season",
+  "description": "The National Oceanic and Atmospheric Administration is predicting an above-average hurricane season for 2021, forecasting 13 to 20 named storms.",
+  "url": "https://www.npr.org/2021/05/22/999461806/subtropical-storm-ana-is-first-named-storm-of-atlantic-hurricane-season",
+  "image_url": "https://media.npr.org/assets/img/2021/05/22/ana_wide-5b96d6e7973ed873e180f1a49e9b5fbab83a7f6d-s800-c85.webp",
+  "isSports": false,
+  "createdAt": {
+    "$date": "2021-05-22T19:22:03.146Z"
+  },
+  "updatedAt": {
+    "$date": "2021-05-22T19:22:03.146Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a95a04fb55544faced332d"
+  },
+  "title": "In Rural India, Less COVID-19 Testing, More Fear — And A Few Ventilators For Millions",
+  "description": "Hospitals are full. Testing is scant. Illiteracy is high. Most deaths are never registered. COVID-19's wrath in rural India is difficult to measure but public health experts are worried.",
+  "url": "https://www.npr.org/2021/05/22/998489469/in-rural-india-less-covid-19-testing-more-fear-and-a-few-ventilators-for-million",
+  "image_url": "https://media.npr.org/assets/img/2021/05/20/gettyimages-1319087357_slide-0472b59dd712f1601e4bb5f1ce3c7cc5aa5f5e11-s800-c85.webp",
+  "isSports": false,
+  "createdAt": {
+    "$date": "2021-05-22T19:22:44.262Z"
+  },
+  "updatedAt": {
+    "$date": "2021-05-22T19:22:44.262Z"
+  },
+  "__v": 0
 }]
