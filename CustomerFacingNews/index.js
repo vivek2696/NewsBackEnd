@@ -23,8 +23,8 @@ const io = require("socket.io")(httpServer, {
     methods: ["GET", "POST"],
   },
 });
-app.set('views', './views');
-app.set('view engine', 'ejs');
+app.set("views", "./views");
+app.set("view engine", "ejs");
 
 app.use(cors());
 app.use(express.json());
