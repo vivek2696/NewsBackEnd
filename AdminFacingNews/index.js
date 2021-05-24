@@ -8,7 +8,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(
+  { 
+    credentials: true,
+    origin: 'http://localhost:4200',
+  }
+));
 
 const db = mongoose.connect(
   "mongodb://127.0.0.1:27017/News", //"mongodb://127.0.0.1:27017/news" (FOR SOME PEOPLE)
