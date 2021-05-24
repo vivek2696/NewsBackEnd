@@ -5,9 +5,12 @@ const router = express.Router();
 
 const NewsModel = require('../models/newsModel');
 const SECRET_KEY = 'NodeFinalProject@Team5SecreteKey';
+const LIMIT_NEWS_PER_PAGE = 10;
 
 router.get('/admin/news', (req, res) => {
-    var token = req.cookies.token;
+    const token = req.cookies.token;
+    //const skip = (req.query.page - 1) * LIMIT_NEWS_PER_PAGE;
+    //console.log('skip:', skip, ' limit:',LIMIT_NEWS_PER_PAGE)
     console.log(token);
 
     if(token != null){
@@ -136,6 +139,5 @@ router.delete('/admin/news/:id', (req, res) => {
         } 
     }
 })
-
 
 module.exports = router;
