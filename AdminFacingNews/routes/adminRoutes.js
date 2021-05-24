@@ -25,7 +25,12 @@ router.post("/login", (req, res) => {
                     maxAge: 900000,
                     httpOnly: true,
                 });
-                var response = {...account, token};
+                const adminObj = {
+                    name: account._doc.name,
+                    email: account._doc.email,
+                    token,
+                };
+                var response = adminObj;
                 console.log("Response: " + response);
                 res.send(response);
             } else {
@@ -52,6 +57,14 @@ router.post("/register", (req, res) => {
             else return res.json({ err: "Error creating Admin" });
         })
         .catch((err) => res.status(500).json(err));
+});
+
+router.get("/logout", (req, res) => {
+    res.cookie("token", "", {
+        maxAge: 0,
+        httpOnly: true,
+    });
+    res.json({ isLoggedIn: false });
 });
 
 module.exports = router;

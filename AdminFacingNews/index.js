@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cookieParser = require('cookie-parser')
-const cors = require('cors')
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const port = 3300;
 const app = express();
@@ -16,16 +16,13 @@ app.use(cors(
 ));
 
 const db = mongoose.connect(
-
-    "mongodb://127.0.0.1:27017/News",
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    },
-    (err) =>
-        err
-            ? console.log("Something got wrong", err)
-            : console.log("DB Connected")
+  "mongodb://127.0.0.1:27017/News", //"mongodb://127.0.0.1:27017/news" (FOR SOME PEOPLE)
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) =>
+    err ? console.log("Something got wrong", err) : console.log("DB Connected")
 );
 
 //Routes
