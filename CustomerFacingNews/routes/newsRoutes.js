@@ -4,26 +4,36 @@ const router = express.Router();
 const NewsModel = require("../models/newsModel");
 
 router.get("/regular-news", (req, res) => {
-    NewsModel.find({ isSports: false }, (err, data) => {
-        if (err) {
-            console.log(err);
-            throw err;
-        } else {
-            console.log(data);
-            res.json(data);
+    NewsModel.find(
+        { isSports: false },
+        null,
+        { sort: { createdAt: -1 } },
+        (err, data) => {
+            if (err) {
+                console.log(err);
+                throw err;
+            } else {
+                console.log(data);
+                res.json(data);
+            }
         }
-    });
+    );
 });
 
 router.get("/sports-news", (req, res) => {
-    NewsModel.find({ isSports: true }, (err, data) => {
-        if (err) {
-            console.log(err);
-            throw err;
-        } else {
-            res.json(data);
+    NewsModel.find(
+        { isSports: true },
+        null,
+        { sort: { createdAt: -1 } },
+        (err, data) => {
+            if (err) {
+                console.log(err);
+                throw err;
+            } else {
+                res.json(data);
+            }
         }
-    });
+    );
 });
 
 router.get("/news/:id", (req, res) => {
